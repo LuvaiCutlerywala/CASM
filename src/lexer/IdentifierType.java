@@ -4,6 +4,6 @@ public enum IdentifierType {
 
     OPCODE,
     OPERAND,
-    LABEL;
+    LABEL
 
 }
