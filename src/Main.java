@@ -1,19 +1,18 @@
 import lexer.Instruction;
-import lexer.Lexer;
+import lexer.SymbolTableGenerator;
+import lexer.Tokeniser;
+import utils.Reader;
 
 import java.io.FileNotFoundException;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        String[] lines = {
-                ".label  ADD R0, R1",
-                "SUB R1, 334",
-                "JMP .label"
-        };
+        String[] lines = Reader.readFile(args[args.length - 1]);
 
-        Instruction[] instructions = Lexer.generateInstructions(lines);
+        Instruction[] instructions = Tokeniser.generateInstructions(lines);
 
+        SymbolTableGenerator.validateOperands(instructions);
 
         for (Instruction instruction: instructions){
             System.out.println(instruction.toString());

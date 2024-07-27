@@ -11,7 +11,8 @@ public enum Opcode {
     STO("STO"),
     LDA("LDA"),
     INC("INC"),
-    DEC("DEC");
+    DEC("DEC"),
+    NOT("NOT");
 
     private final String value;
 
@@ -35,13 +36,14 @@ public enum Opcode {
             case "LDA" -> Opcode.LDA;
             case "INC" -> Opcode.INC;
             case "DEC" -> Opcode.DEC;
+            case "NOT" -> Opcode.NOT;
             default -> null;
         };
     }
 
     public static boolean isOpcode(String opcode){
         return switch (opcode) {
-            case "ADD", "SUB", "JMP", "BRZ", "BRP", "HLT", "STO", "LDA", "INC", "DEC" -> true;
+            case "ADD", "SUB", "JMP", "BRZ", "BRP", "HLT", "STO", "LDA", "INC", "DEC", "NOT" -> true;
             default -> false;
         };
     }

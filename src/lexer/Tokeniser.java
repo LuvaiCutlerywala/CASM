@@ -2,7 +2,7 @@ package lexer;
 
 import java.util.ArrayList;
 
-public class Lexer {
+public class Tokeniser {
 
     public static Instruction[] generateInstructions(String[] lines){
         Instruction[] instructions = new Instruction[lines.length];
@@ -12,16 +12,6 @@ public class Lexer {
             instructions[i] = instruction;
         }
         return instructions;
-    }
-
-    public static void prune(Instruction[] instructions){
-        for(Instruction instruction: instructions){
-            for(Token token: instruction.getInstruction()){
-                if(token.getType().equals(IdentifierType.OPERAND)){
-
-                }
-            }
-        }
     }
 
     private static void convertInstructionToInternalSymbols(Instruction instruction){

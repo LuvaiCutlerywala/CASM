@@ -15,7 +15,10 @@ public class Reader {
         }
 
         scanner.close();
+
+        content.replaceAll(s -> s.split(";")[0]);
         content.removeIf(String::isEmpty);
+
         return content.toArray(new String[0]);
     }
 
