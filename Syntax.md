@@ -3,18 +3,18 @@
 All mnemonic keywords are to be typed using capital letters, as presented in the keywords table below.
 
 ## Keywords
-| Keyword | Definition                                                                                 | Usage       |
-|---------|--------------------------------------------------------------------------------------------|-------------|
-| ADD     | Adds two numbers in specified registers and stores value in accumulator.                   | ADD R0, R1  |
-| SUB     | Subtracts the number stored in the latter register from the number in the former register. | SUB R1, R0  |
-| JMP     | Jumps to the label specified.                                                              | JMP .end    |
-| BRZ     | Branches to the label specified if value in accumulator is zero.                           | BRZ .loop   |
-| BRP     | Branches to the label specified if value in accumulator is positive.                       | BRP .loop   |
-| HLT     | Halts the program.                                                                         | HLT         |
-| STO     | Stores the value in the former register to the value in the latter register.               | STO R0, R1  |
-| LDA     | Loads the value in the former register to the latter register.                             | LDA R1, R0  |
-| INC     | Increments the value stored in the register.                                               | INC R1      |
-| DEC     | Decrements the value stored in the register.                                               | DEC R1      |
+| Keyword | Definition                                                                                 | Usage      |
+|---------|--------------------------------------------------------------------------------------------|------------|
+| ADD     | Adds two numbers in specified registers and stores value in accumulator.                   | ADD R0, R1 |
+| SUB     | Subtracts the number stored in the latter register from the number in the former register. | SUB R1, R0 |
+| JMP     | Jumps to the label specified.                                                              | JMP .end   |
+| BRZ     | Branches to the label specified if value in accumulator is zero.                           | BRZ .loop  |
+| BRP     | Branches to the label specified if value in accumulator is positive.                       | BRP .loop  |
+| HLT     | Halts the program.                                                                         | HLT        |
+| STO     | Stores the value in the former register to the value in the latter register.               | STO R0, R1 |
+| LDA     | Loads the value in the former register to the latter register.                             | LDA R1, R0 |
+| INC     | Increments the value stored in the accumulator.                                            | INC        |
+| DEC     | Decrements the value stored in the accumulator.                                            | DEC        |
 
 
 ## Comments
