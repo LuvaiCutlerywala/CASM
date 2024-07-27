@@ -15,6 +15,7 @@ All mnemonic keywords are to be typed using capital letters, as presented in the
 | LDA     | Loads the value in the former register to the latter register.                             | LDA R1, R0 |
 | INC     | Increments the value stored in the accumulator.                                            | INC        |
 | DEC     | Decrements the value stored in the accumulator.                                            | DEC        |
+| NOT     | Inverts the value held in the register.                                                    | NOT R2     |
 
 
 ## Comments
