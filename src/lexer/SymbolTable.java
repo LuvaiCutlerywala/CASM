@@ -1,10 +1,11 @@
 package lexer;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class SymbolTable {
 
-    private HashMap<String, Integer> symbolTable;
+    private final HashMap<String, Integer> symbolTable;
 
     public SymbolTable(){
         this.symbolTable = new HashMap<>();
@@ -16,6 +17,10 @@ public class SymbolTable {
 
     public int findDefinitionPoint(String label){
         return symbolTable.get(label);
+    }
+
+    public Set<String> getAllSymbols(){
+        return symbolTable.keySet();
     }
 
 }

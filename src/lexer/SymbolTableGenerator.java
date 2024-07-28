@@ -3,11 +3,18 @@ package lexer;
 public class SymbolTableGenerator {
 
     public static SymbolTable generateSymbolTable(Instruction[] instructions){
-        //TODO: Complete symbol table generator for labels.
-        return null;
+        validateOperands(instructions);
+        SymbolTable table = new SymbolTable();
+        for(int i = 0; i < instructions.length; ++i){
+            Token token = instructions[i].getInstruction()[0];
+            if(token.getType().equals(IdentifierType.LABEL)){
+                table.addSymbol(token.getIdentifier(), i);
+            }
+        }
+        return table;
     }
 
-    public static void validateOperands(Instruction[] instructions) throws IllegalArgumentException{
+    private static void validateOperands(Instruction[] instructions) throws IllegalArgumentException{
         for(Instruction instruction: instructions){
             validateInstructionOperands(instruction);
         }
@@ -17,7 +24,7 @@ public class SymbolTableGenerator {
         for(Token token: instruction.getInstruction()){
             if(token.getType().equals(IdentifierType.OPERAND) && token.getRegister() == null){
                 if(!token.getIdentifier().matches("[0-9]+")){
-                    throw new IllegalArgumentException("Undefined operand used.");
+                    throw new IllegalArgumentException("Undefined operand, symbol: " + token.getIdentifier());
                 }
             }
         }

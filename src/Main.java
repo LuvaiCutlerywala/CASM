@@ -1,4 +1,5 @@
 import lexer.Instruction;
+import lexer.SymbolTable;
 import lexer.SymbolTableGenerator;
 import lexer.Tokeniser;
 import utils.Reader;
@@ -12,7 +13,7 @@ public class Main {
 
         Instruction[] instructions = Tokeniser.generateInstructions(lines);
 
-        SymbolTableGenerator.validateOperands(instructions);
+        SymbolTable symbolTable = SymbolTableGenerator.generateSymbolTable(instructions);
 
         for (Instruction instruction: instructions){
             System.out.println(instruction.toString());
