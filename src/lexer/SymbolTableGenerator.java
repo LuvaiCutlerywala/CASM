@@ -1,5 +1,10 @@
 package lexer;
 
+import entities.IdentifierType;
+import entities.Instruction;
+import entities.SymbolTable;
+import entities.Token;
+
 public class SymbolTableGenerator {
 
     public static SymbolTable generateSymbolTable(Instruction[] instructions){

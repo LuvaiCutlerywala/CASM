@@ -1,5 +1,5 @@
-import lexer.Instruction;
-import lexer.SymbolTable;
+import entities.Instruction;
+import entities.SymbolTable;
 import lexer.SymbolTableGenerator;
 import lexer.Tokeniser;
 import utils.Reader;

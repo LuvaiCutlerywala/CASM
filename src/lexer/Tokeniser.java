@@ -1,5 +1,7 @@
 package lexer;
 
+import entities.*;
+
 import java.util.ArrayList;
 
 public class Tokeniser {

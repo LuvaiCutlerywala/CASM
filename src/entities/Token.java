@@ -1,4 +1,4 @@
-package lexer;
+package entities;
 
 public class Token {
 
