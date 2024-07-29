@@ -1,4 +1,4 @@
-package lexer;
+package assembler;
 
 import entities.IdentifierType;
 import entities.Instruction;

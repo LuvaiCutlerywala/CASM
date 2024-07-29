@@ -1,6 +1,8 @@
 # Syntax
 
-All mnemonic keywords are to be typed using capital letters, as presented in the keywords table below.
+All mnemonic keywords are to be typed using capital letters, as presented in the keywords table below. The underlying
+architecture type is assumed to be a Von Neumann architecture, therefore memory space that the program is loaded onto is
+shared with the data.
 
 ## Keywords
 | Keyword | Definition                                                                                 | Usage      |
@@ -30,7 +32,7 @@ as being a labelling of the line itself, whilst labels after an instruction will
 There are 8 general purpose registers that are available to the programmer, as well as the accumulator as a separate register.
 
 | Register Reference | Tag |
-| ------------------ | --- |
+|--------------------|-----|
 | Register 0         | R0  |
 | Register 1         | R1  |
 | Register 2         | R2  |

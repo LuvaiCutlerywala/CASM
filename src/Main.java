@@ -1,7 +1,7 @@
 import entities.Instruction;
 import entities.SymbolTable;
-import lexer.SymbolTableGenerator;
-import lexer.Tokeniser;
+import assembler.SymbolTableGenerator;
+import assembler.Tokeniser;
 import utils.Reader;
 
 import java.io.FileNotFoundException;
