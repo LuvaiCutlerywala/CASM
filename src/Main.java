@@ -1,3 +1,4 @@
+import assembler.SemanticAnalyser;
 import entities.Instruction;
 import entities.SymbolTable;
 import assembler.SymbolTableGenerator;
@@ -14,6 +15,8 @@ public class Main {
         Instruction[] instructions = Tokeniser.generateInstructions(lines);
 
         SymbolTable symbolTable = SymbolTableGenerator.generateSymbolTable(instructions);
+
+        SemanticAnalyser.analyseInstructions(instructions, symbolTable);
 
         for (Instruction instruction: instructions){
             System.out.println(instruction.toString());

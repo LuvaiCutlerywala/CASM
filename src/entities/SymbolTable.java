@@ -23,4 +23,8 @@ public class SymbolTable {
         return symbolTable.keySet();
     }
 
+    public boolean containsSymbol(String label){
+        return symbolTable.containsKey(label);
+    }
+
 }
