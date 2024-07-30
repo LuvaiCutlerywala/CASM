@@ -13,3 +13,7 @@ which is occupied by data specified, as well as the program itself. Each instruc
 
 ## Syntax
 See [Syntax.md](Syntax.md) 
+
+## I/O types
+The input is always .asm files, and the output files are always .img files. As all programs are currently in assembly,
+it makes it easy to load the program files into the VM using .img files. 

@@ -5,19 +5,20 @@ architecture type is assumed to be a Von Neumann architecture, therefore memory 
 shared with the data.
 
 ## Keywords
-| Keyword | Definition                                                                                 | Usage      |
-|---------|--------------------------------------------------------------------------------------------|------------|
-| ADD     | Adds two numbers in specified registers and stores value in accumulator.                   | ADD R0, R1 |
-| SUB     | Subtracts the number stored in the latter register from the number in the former register. | SUB R1, R0 |
-| JMP     | Jumps to the label specified.                                                              | JMP .end   |
-| BRZ     | Branches to the label specified if value in accumulator is zero.                           | BRZ .loop  |
-| BRP     | Branches to the label specified if value in accumulator is positive.                       | BRP .loop  |
-| HLT     | Halts the program.                                                                         | HLT        |
-| STO     | Stores the value in the former register to the value in the latter register.               | STO R0, R1 |
-| LDA     | Loads the value in the former register to the latter register.                             | LDA R1, R0 |
-| INC     | Increments the value stored in the accumulator.                                            | INC        |
-| DEC     | Decrements the value stored in the accumulator.                                            | DEC        |
-| NOT     | Inverts the value held in the register.                                                    | NOT R2     |
+| Keyword | Definition                                                                                 | Usage       |
+|---------|--------------------------------------------------------------------------------------------|-------------|
+| ADD     | Adds two numbers in specified registers and stores value in accumulator.                   | ADD R0, R1  |
+| SUB     | Subtracts the number stored in the latter register from the number in the former register. | SUB R1, R0  |
+| JMP     | Jumps to the label specified.                                                              | JMP .end    |
+| BRZ     | Branches to the label specified if value in accumulator is zero.                           | BRZ .loop   |
+| BRP     | Branches to the label specified if value in accumulator is positive.                       | BRP .loop   |
+| HLT     | Halts the program.                                                                         | HLT         |
+| STO     | Stores the value in the register to the address in the main memory.                        | STO R0, 345 |
+| LDA     | Loads the value in the memory address to the register.                                     | LDA 345, R0 |
+| INC     | Increments the value stored in the accumulator.                                            | INC         |
+| DEC     | Decrements the value stored in the accumulator.                                            | DEC         |
+| NOT     | Inverts the value held in the register.                                                    | NOT R2      |
+| MOV     | Moves the value held in the former register to the latter register.                        | MOV R0, R1  | 
 
 
 ## Comments
@@ -25,7 +26,7 @@ Comments are denoted using the ';' symbol to start the comment, until the end of
 can be used for the line endings.
 
 ## Labels
-Each label must begin with a '.' symbol, and can only be used before or after an instuction, with labels prior to an instruction assumed
+Each label must begin with a '.' symbol, and can only be used before or after an instruction, with labels prior to an instruction assumed
 as being a labelling of the line itself, whilst labels after an instruction will be assumed to be a reference to another line.
 
 ## Registers

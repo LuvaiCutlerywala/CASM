@@ -8,20 +8,21 @@ import java.util.HashMap;
 
 public class SemanticAnalyser {
 
-    private static final HashMap<Opcode, Tuple<Integer, IdentifierType>> operandMetadata = new HashMap<>();
+    private static final HashMap<Opcode, Integer> operandMetadata = new HashMap<>();
 
     static {
-        operandMetadata.put(Opcode.ADD, new Tuple<>(2, IdentifierType.OPERAND));
-        operandMetadata.put(Opcode.SUB, new Tuple<>(2, IdentifierType.OPERAND));
-        operandMetadata.put(Opcode.JMP, new Tuple<>(1, IdentifierType.LABEL));
-        operandMetadata.put(Opcode.BRZ, new Tuple<>(1, IdentifierType.LABEL));
-        operandMetadata.put(Opcode.BRP, new Tuple<>(1, IdentifierType.LABEL));
-        operandMetadata.put(Opcode.HLT, new Tuple<>(0, null));
-        operandMetadata.put(Opcode.STO, new Tuple<>(2, IdentifierType.OPERAND));
-        operandMetadata.put(Opcode.LDA, new Tuple<>(2, IdentifierType.OPERAND));
-        operandMetadata.put(Opcode.INC, new Tuple<>(0, null));
-        operandMetadata.put(Opcode.DEC, new Tuple<>(0, null));
-        operandMetadata.put(Opcode.NOT, new Tuple<>(1, IdentifierType.OPERAND));
+        operandMetadata.put(Opcode.ADD, 2);
+        operandMetadata.put(Opcode.SUB, 2);
+        operandMetadata.put(Opcode.JMP, 1);
+        operandMetadata.put(Opcode.BRZ, 1);
+        operandMetadata.put(Opcode.BRP, 1);
+        operandMetadata.put(Opcode.HLT, 0);
+        operandMetadata.put(Opcode.STO, 2);
+        operandMetadata.put(Opcode.LDA, 2);
+        operandMetadata.put(Opcode.INC, 0);
+        operandMetadata.put(Opcode.DEC, 0);
+        operandMetadata.put(Opcode.NOT, 1);
+        operandMetadata.put(Opcode.MOV, 2);
     }
 
     public static void analyseInstructions(Instruction[] instructions, SymbolTable symbolTable){
@@ -50,17 +51,9 @@ public class SemanticAnalyser {
                 }
             }
 
-            Tuple<Integer, IdentifierType> metadata = operandMetadata.get(tokens.getFirst().getOpcode());
-            if(tokens.size() - 1 != metadata.a()){
+            int operandCount = operandMetadata.get(tokens.getFirst().getOpcode());
+            if(tokens.size() - 1 != operandCount){
                 verified = false;
-            }
-
-            tokens.removeFirst();
-            for(Token token: tokens){
-                if(!token.getType().equals(metadata.b())){
-                    verified = false;
-                    break;
-                }
             }
         }
         return verified;
