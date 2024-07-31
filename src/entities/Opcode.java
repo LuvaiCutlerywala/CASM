@@ -2,25 +2,27 @@ package entities;
 
 public enum Opcode {
 
-    ADD("ADD", new String[]{"Register", "Register"}),
-    SUB("SUB", new String[]{"Register", "Register"}),
-    JMP("JMP", new String[]{"Label"}),
-    BRZ("BRZ", new String[]{"Label"}),
-    BRP("BRP", new String[]{"Label"}),
-    HLT("HLT", new String[]{}),
-    STO("STO", new String[]{"Register", "Address"}),
-    LDA("LDA", new String[]{"Address", "Register"}),
-    INC("INC", new String[]{}),
-    DEC("DEC", new String[]{}),
-    NOT("NOT", new String[]{"Register"}),
-    MOV("MOV", new String[]{"Register", "Register"});
+    ADD("ADD", new String[]{"Register", "Register"}, (byte) 0x01),
+    SUB("SUB", new String[]{"Register", "Register"}, (byte) 0x02),
+    JMP("JMP", new String[]{"Label"}, (byte) 0x03),
+    BRZ("BRZ", new String[]{"Label"}, (byte) 0x04),
+    BRP("BRP", new String[]{"Label"}, (byte) 0x05),
+    HLT("HLT", new String[]{}, (byte) 0x06),
+    STO("STO", new String[]{"Register", "Address"}, (byte) 0x07),
+    LDA("LDA", new String[]{"Address", "Register"}, (byte) 0x08),
+    INC("INC", new String[]{}, (byte) 0x09),
+    DEC("DEC", new String[]{}, (byte) 0x0a),
+    NOT("NOT", new String[]{"Register"}, (byte) 0x0b),
+    MOV("MOV", new String[]{"Register", "Register"}, (byte) 0x0c);
 
     private final String value;
     private final String[] args;
+    private final byte code;
 
-    Opcode(String val, String[] args){
+    Opcode(String val, String[] args, byte code){
         this.value = val;
         this.args = args;
+        this.code = code;
     }
 
     public String getOpcode(){
@@ -29,6 +31,10 @@ public enum Opcode {
 
     public String[] getArgs() {
         return this.args;
+    }
+
+    public byte getCode() {
+        return this.code;
     }
 
     public static Opcode convertToOpcode(String opcode){
