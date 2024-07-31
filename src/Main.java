@@ -1,4 +1,5 @@
 import assembler.SemanticAnalyser;
+import assembler.TypeAnalyser;
 import entities.Instruction;
 import entities.SymbolTable;
 import assembler.SymbolTableGenerator;
@@ -17,6 +18,8 @@ public class Main {
         SymbolTable symbolTable = SymbolTableGenerator.generateSymbolTable(instructions);
 
         SemanticAnalyser.analyseInstructions(instructions, symbolTable);
+
+        TypeAnalyser.analyseTypes(instructions);
 
         for (Instruction instruction: instructions){
             System.out.println(instruction.toString());

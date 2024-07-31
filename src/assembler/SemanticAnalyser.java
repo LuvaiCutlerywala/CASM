@@ -1,29 +1,10 @@
 package assembler;
 
 import entities.*;
-import utils.Tuple;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class SemanticAnalyser {
-
-    private static final HashMap<Opcode, Integer> operandMetadata = new HashMap<>();
-
-    static {
-        operandMetadata.put(Opcode.ADD, 2);
-        operandMetadata.put(Opcode.SUB, 2);
-        operandMetadata.put(Opcode.JMP, 1);
-        operandMetadata.put(Opcode.BRZ, 1);
-        operandMetadata.put(Opcode.BRP, 1);
-        operandMetadata.put(Opcode.HLT, 0);
-        operandMetadata.put(Opcode.STO, 2);
-        operandMetadata.put(Opcode.LDA, 2);
-        operandMetadata.put(Opcode.INC, 0);
-        operandMetadata.put(Opcode.DEC, 0);
-        operandMetadata.put(Opcode.NOT, 1);
-        operandMetadata.put(Opcode.MOV, 2);
-    }
 
     public static void analyseInstructions(Instruction[] instructions, SymbolTable symbolTable){
         if(!verifyOperands(instructions)){
@@ -39,19 +20,17 @@ public class SemanticAnalyser {
             ArrayList<Token> tokens = new ArrayList<>();
             boolean collect = false;
             for(Token token: instruction.getInstruction()){
-                //Check if opcode has been reached. Collect opcode into tokens list.
                 if(token.getType().equals(IdentifierType.OPCODE)){
                     tokens.add(token);
                     collect = true;
                     continue;
                 }
-                //If collect flag is enabled, collect all subsequent tokens.
                 if(collect){
                     tokens.add(token);
                 }
             }
 
-            int operandCount = operandMetadata.get(tokens.getFirst().getOpcode());
+            int operandCount = tokens.getFirst().getOpcode().getArgs().length;
             if(tokens.size() - 1 != operandCount){
                 verified = false;
             }

@@ -1,15 +1,15 @@
-LDA ACC, R0
+LDA 567, R0
 STO R1, 124
-.loop LDA R2, ACC
+.loop LDA 222, ACC
 INC
 INC ; This is an increment statement
 INC
-STO ACC, R2
-LDA R0, 345
+STO R0, 345
+LDA 345, R0
 JMP .loop
 
 ; That is an above code section
 ; This is a new one.
 
-.data LDA ACC, 142
-STO 142, R0
+.data LDA 142, ACC
+STO R0, 142
