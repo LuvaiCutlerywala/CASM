@@ -5,17 +5,17 @@ import java.util.Set;
 
 public class SymbolTable {
 
-    private final HashMap<String, Short> symbolTable;
+    private final HashMap<String, Integer> symbolTable;
 
     public SymbolTable(){
         this.symbolTable = new HashMap<>();
     }
 
-    public void addSymbol(String label, short definitionPoint){
+    public void addSymbol(String label, int definitionPoint){
         symbolTable.put(label, definitionPoint);
     }
 
-    public short findDefinitionPoint(String label){
+    public int findDefinitionPoint(String label){
         return symbolTable.get(label);
     }
 
