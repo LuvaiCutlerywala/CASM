@@ -35,7 +35,7 @@ public class CodeGenerator {
         return strippedInstructions;
     }
 
-    public static int encodeInstruction(Instruction instruction){
+    private static int encodeInstruction(Instruction instruction){
         int encodedInstruction = 0;
         int pos = 32;
         for(Token token: instruction.getInstruction()){
