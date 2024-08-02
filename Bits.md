@@ -34,19 +34,8 @@
 | R7      | 1000   | 8   |
 | ACC     | 1001   | 9   |
 
-## Instruction encoding
+## Special characaters
 
-| Instruction | Binary | Hex | 
-|-------------|--------|-----|
-| ADD R0, R1  | 0001   | 1   |
-| SUB         | 0010   | 2   |
-| JMP         | 0011   | 3   |
-| BRZ         | 0100   | 4   |
-| BRP         | 0101   | 5   |
-| HLT         | 0110   | 6   |
-| STO         | 0111   | 7   |
-| LDA         | 1000   | 8   |
-| INC         | 1001   | 9   |
-| DEC         | 1010   | A   |
-| NOT         | 1011   | B   |
-| MOV         | 1100   | C   |
+To represent the file's beginning and end, as well as signalling the end of the symbol table, we shall use the number 0.
+As 0 is reserved in the opcodes, the registers, and the labels, it can be safely used as the reserve character for the 
+alignment markers.
