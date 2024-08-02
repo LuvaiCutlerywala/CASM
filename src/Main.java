@@ -1,9 +1,5 @@
-import assembler.SemanticAnalyser;
-import assembler.TypeAnalyser;
-import entities.Instruction;
-import entities.SymbolTable;
-import assembler.SymbolTableGenerator;
-import assembler.Tokeniser;
+import assembler.*;
+import entities.*;
 import utils.Reader;
 
 import java.io.FileNotFoundException;
@@ -21,7 +17,7 @@ public class Main {
 
         TypeAnalyser.analyseTypes(instructions);
 
-        for (Instruction instruction: instructions){
+        for (Instruction instruction: instructions) {
             System.out.println(instruction.toString());
         }
     }
