@@ -39,3 +39,10 @@
 To represent the file's beginning and end, as well as signalling the end of the symbol table, we shall use the number 0.
 As 0 is reserved in the opcodes, the registers, and the labels, it can be safely used as the reserve character for the 
 alignment markers.
+
+## Byte Ordering for .img file.
+The first 4 bytes are always 0, as it signals the beginning of the file. Then the next eight bytes, 4 for the symbol
+table and 4 for the instructions respectively, represent the symbol table size and the instructions length. The next 4
+bytes are reserved bytes, therefore 0, and then the next bytes up to the next set of the reserved 4 bytes are symbol
+symbol table definitions. The next bytes after the reserved bytes are the instructions, and the EOF is defined by the
+lst sequence of 4 reserved bytes.
