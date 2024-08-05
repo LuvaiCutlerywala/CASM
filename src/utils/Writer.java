@@ -2,6 +2,7 @@ package utils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 public class Writer {
 
@@ -12,14 +13,15 @@ public class Writer {
         fileOutputStream.write(instructions.length); //Instructions size.
         fileOutputStream.write(0);
         for(int symbol: symbolTable){
-            fileOutputStream.write(symbol);
+            byte[] bytes = ByteBuffer.allocate(4).putInt(symbol).array();
+            fileOutputStream.write(bytes);
         }
         fileOutputStream.write(0); //Signal symbol table end.
         for(int instruction: instructions){
+            byte[] bytes = ByteBuffer.allocate(4).putInt(instruction).array();
             fileOutputStream.write(instruction);
         }
         fileOutputStream.write(0); //Signal EOF.
         fileOutputStream.close();
     }
-
 }
