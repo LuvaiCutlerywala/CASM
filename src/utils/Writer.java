@@ -19,7 +19,7 @@ public class Writer {
         fileOutputStream.write(0); //Signal symbol table end.
         for(int instruction: instructions){
             byte[] bytes = ByteBuffer.allocate(4).putInt(instruction).array();
-            fileOutputStream.write(instruction);
+            fileOutputStream.write(bytes);
         }
         fileOutputStream.write(0); //Signal EOF.
         fileOutputStream.close();
