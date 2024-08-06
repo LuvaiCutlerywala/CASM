@@ -4,7 +4,7 @@ import entities.SymbolTable;
 
 public class SymbolTableEncoder {
 
-    public static int[] encodeSymbolTable(SymbolTable symbolTable){
+    protected static int[] encodeSymbolTable(SymbolTable symbolTable){
         String[] symbols = symbolTable.getAllSymbols().toArray(new String[0]);
         int[] definitionPoints = new int[symbols.length];
         for(int i = 0; i < symbols.length; ++i){

@@ -10,7 +10,7 @@ public class CodeGenerator {
 
     //This generator does not use aligned instructions, therefore the bitset for each instruction almost unique.
 
-    public static int[] translateInstructions(Instruction[] instructions){
+    protected static int[] translateInstructions(Instruction[] instructions){
         Instruction[] strippedInstructions = stripLabels(instructions);
         int[] encodedInstructions = new int[strippedInstructions.length];
         for(int i = 0; i < strippedInstructions.length; ++i){
