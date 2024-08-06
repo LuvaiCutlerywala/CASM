@@ -40,6 +40,8 @@ public class BinaryGenerator {
         for(int i = 0; i < bytes.length; ++i){
             bytes[i] = byteStack.pop();
         }
+
+        return bytes;
     }
 
     private static void addArray(byte[] array){
