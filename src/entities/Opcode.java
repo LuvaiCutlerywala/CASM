@@ -13,7 +13,8 @@ public enum Opcode {
     INC("INC", new String[]{}, (byte) 0x09),
     DEC("DEC", new String[]{}, (byte) 0x0a),
     NOT("NOT", new String[]{"Register"}, (byte) 0x0b),
-    MOV("MOV", new String[]{"Register", "Register"}, (byte) 0x0c);
+    MOV("MOV", new String[]{"Register", "Register"}, (byte) 0x0c),
+    OUT("OUT", new String[]{"Register"}, (byte) 0x0d);
 
     private final String value;
     private final String[] args;
@@ -51,13 +52,14 @@ public enum Opcode {
             case "DEC" -> Opcode.DEC;
             case "NOT" -> Opcode.NOT;
             case "MOV" -> Opcode.MOV;
+            case "OUT" -> Opcode.OUT;
             default -> null;
         };
     }
 
     public static boolean isOpcode(String opcode){
         return switch (opcode) {
-            case "ADD", "SUB", "JMP", "BRZ", "BRP", "HLT", "STO", "LDA", "INC", "DEC", "NOT", "MOV" -> true;
+            case "ADD", "SUB", "JMP", "BRZ", "BRP", "HLT", "STO", "LDA", "INC", "DEC", "NOT", "MOV", "OUT" -> true;
             default -> false;
         };
     }

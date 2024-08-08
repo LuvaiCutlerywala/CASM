@@ -18,7 +18,8 @@ shared with the data.
 | INC     | Increments the value stored in the accumulator.                                            | INC         |
 | DEC     | Decrements the value stored in the accumulator.                                            | DEC         |
 | NOT     | Inverts the value held in the register.                                                    | NOT R2      |
-| MOV     | Moves the value held in the former register to the latter register.                        | MOV R0, R1  | 
+| MOV     | Moves the value held in the former register to the latter register.                        | MOV R0, R1  |
+| OUT     | Outputs the value stored in the register.                                                  | OUT R0      |
 
 
 ## Comments
